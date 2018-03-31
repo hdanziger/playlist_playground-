@@ -1,9 +1,9 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import {connect} from 'react-redux';
 
 class PlaylistCard extends Component {
-  render
+  render() {
   let playlist = this.props.playlist;
   let playlists = this.props.playlists;
   return (
@@ -11,7 +11,9 @@ class PlaylistCard extends Component {
     <Link to={`playlists${playlist.id}`}>
     <h1 className="card-title">{playlist.title}</h1>
     </Link>
+    </div>
   )
+}
 }
 
 export default PlaylistCard
