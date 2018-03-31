@@ -6,8 +6,12 @@ class PlaylistShow extends Component {
     let playlist = this.props.playlist[0]
 
     return (
-      <div></div>
+      <div className="playlistShow">
+        <div>
+        <h1 className="playlistName">{playlist.title}</h1>
+      </div>
+      </div>
     )
-  }
+  };
 }
 export default PlaylistShow
