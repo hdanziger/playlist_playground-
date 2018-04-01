@@ -7,3 +7,16 @@
     component={PlaylistShow}
   />
 </Switch>
+
+App
+//import Navbar from "./components/Navbar";
+//import Home from "./components/Home";
+// <Switch>
+//   <Route exact path="/" component={Home} />
+// <Route exact path='/playlists/new' component={PlaylistForm} />
+// </Switch>
+
+//import PlaylistShow from "./containers/PlaylistShow";
+//import PlaylistForm from "./containers/PlaylistForm";
+containers/playlists
+import PlaylistCard from "../components/PlaylistCard";
