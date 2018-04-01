@@ -23,9 +23,7 @@ export const fetchPlaylists = () => {
   return dispatch => {
     return fetch('http://localhost:3001/api/playlists')
     .then(resp => resp.json())
-    .then(data => {
-      
-    })
+    .then(playlists => dispatch(setPlaylists(playlists)))
+    .catch(error => console.log(error))
+    }
   }
-
-}

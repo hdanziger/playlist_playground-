@@ -8,24 +8,33 @@ const playlists = [
   { title: "list",
     genre: "pop",
     songs: "songs",
-    img_url: ""
+    img_url: "https://assets.rbl.ms/13591752/980x.jpg"
   },
   { title: "new list",
     genre: "metal",
     songs: "songsss",
-    img_url: ""
+    img_url: "https://assets.rbl.ms/13591771/980x.jpg"
   }
 ]
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      playlists: []
+    }
+  }
+
   render() {
+    console.log(this.state)
     return (
       <div className="App">
-        <Router>
           <div className="App-header">
              <h1>Welcome to Playlist Playground!</h1>
+             </div>
              <Playlists playlists={playlists} />
-          </div>
+          <Router>
         </Router>
       </div>
     );
