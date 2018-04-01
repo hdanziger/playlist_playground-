@@ -23,6 +23,7 @@ class PlaylistForm extends Component {
     const {
       title,
       genre,
+      songs,
       img_url
     } = this.props.playlistFormData;
 
@@ -47,6 +48,15 @@ class PlaylistForm extends Component {
               type="text"
               onChange={this.handleOnChange}
               name="genre"
+              value={genre}
+            />
+          <div>
+            <label htmlFor="songs">
+            </label>
+            <input
+              type="text"
+              onChange={this.handleOnChange}
+              name="songs"
               value={genre}
             />
           </div>
