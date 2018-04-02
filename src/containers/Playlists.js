@@ -2,6 +2,8 @@ import React, {Component} from "react";
 import {connect} from "react-redux";
 import './playlists.css'
 import { fetchPlaylists } from '../actions/playlists';
+import PlaylistCard from '../components/PlaylistCard';
+import PlaylistForm from './PlaylistForm';
 
 class Playlists extends Component {
   componentDidMount(){
@@ -10,25 +12,18 @@ class Playlists extends Component {
   }
   render(){
     return(
-      <div>
+      <div className="PlaylistsContainer">
       <h3> Playlists </h3>
-      {this.props.playlists.map(playlist =>
-      <div className="playlistCard"
-      key={playlist.id} playlist={playlist}>
-        <h4>Title: {playlist.title}</h4>
-        <p>Genre: {playlist.genre}</p>
-        <p>Songs: {playlist.songs}</p>
-        <img src={playlist.img_url} alt={playlist.title} />
-        </div>
-      )}
+        {this.props.playlists.map(playlist => <PlaylistCard key={playlist.id} playlist={playlist} />)}
+        <PlaylistForm />
       </div>
-    )
+    );
   }
 }
 
 const mapStateToProps = (state) => {
-  return ({
-    playlist: state.playlist
+  return({
+    playlists: state.playlists
   })
 }
 export default connect(mapStateToProps, { fetchPlaylists })(Playlists);

@@ -1,3 +1,4 @@
+//** action creators **
 const setPlaylists = playlists => {
   return {
     type: "GET_PLAYLISTS_SUCCESS",
@@ -18,7 +19,7 @@ const updatePlaylist = playlist => {
     playlist
   };
 };
-
+//** async actions **
 export const fetchPlaylists = () => {
   return dispatch => {
     return fetch('http://localhost:3001/api/playlists')

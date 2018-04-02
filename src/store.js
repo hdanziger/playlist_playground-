@@ -1,12 +1,11 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
-
 import playlists from './reducers/playlists'
 import playlistFormData from './reducers/playlistFormData';
 
 const reducers = combineReducers({
-     playlists
-    // playlistFormData
+     playlists,
+    playlistFormData
   });
 const middleware = [thunk];
 

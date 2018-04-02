@@ -1,19 +1,13 @@
-import React, {Component} from 'react';
-import { Link } from 'react-router-dom';
-import {connect} from 'react-redux';
+import React from 'react';
 
-class PlaylistCard extends Component {
-  render() {
-  let playlist = this.props.playlist;
-  let playlists = this.props.playlists;
-  return (
+const PlaylistCard = ({ playlist }) => (
     <div key={playlist.id} className="PlaylistCard">
-    <Link to={`playlists${playlist.id}`}>
-    <h1 className="card-title">{playlist.title}</h1>
-    </Link>
+      <h4>Title: {playlist.title}</h4>
+      <p>Genre: {playlist.genre}</p>
+      <p>Songs: {playlist.songs}</p>
+      <img src={playlist.img_url} alt={playlist.title} />
     </div>
   )
-}
-}
 
-export default PlaylistCard
+
+export default PlaylistCard;

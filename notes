@@ -20,3 +20,17 @@ App
 //import PlaylistForm from "./containers/PlaylistForm";
 containers/playlists
 import PlaylistCard from "../components/PlaylistCard";
+
+
+const playlists = [
+  { title: "list",
+    genre: "pop",
+    songs: "songs",
+    img_url: "https://assets.rbl.ms/13591752/980x.jpg"
+  },
+  { title: "new list",
+    genre: "metal",
+    songs: "songsss",
+    img_url: "https://assets.rbl.ms/13591771/980x.jpg"
+  }
+]
