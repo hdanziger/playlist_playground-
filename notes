@@ -34,3 +34,5 @@ const playlists = [
     img_url: "https://assets.rbl.ms/13591771/980x.jpg"
   }
 ]
+
+  // dispatch(addPlaylist(playlists))})

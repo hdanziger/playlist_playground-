@@ -28,3 +28,19 @@ export const fetchPlaylists = () => {
     .catch(error => console.log(error))
     }
   }
+
+export const createPlaylist = playlist  => {
+  return dispatch => {
+    return fetch('http://localhost:3001/api/playlists', {
+    method: "POST",
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({playlist: playlist})
+  })
+    .then(resp => resp.json())
+    .then(playlist => {
+      debugger
+    })
+  }
+}
