@@ -7,7 +7,11 @@ const PlaylistCard = ({ playlist }) => (
       <h4>Title: {playlist.title}</h4>
       </Link>
       <p>Genre: {playlist.genre}</p>
-      <p>Songs: {playlist.songs}</p>
+      <ul>Songs:
+      {playlist.songs.map((song, index) => (
+        <li key={index}>{song.title} by: {song.artist}</li>
+      ))}
+      </ul>
       <img src={playlist.img_url} alt={playlist.title} />
     </div>
   )

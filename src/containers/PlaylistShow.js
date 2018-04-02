@@ -13,13 +13,22 @@ class PlaylistShow extends Component {
 
   render(){
     let playlist = this.props.playlist[0];
-    const { history } = this.props;
+    const { history } = this.props
     return(
       <div>
         <h1 className="App-header"> Playlist: {playlist.title} </h1>
-        <h4> Genre: {playlist.genre} </h4>
-        <h4> Songs: {playlist.songs} </h4>
-        <h4> img_url: {playlist.title} </h4>
+        <div className="PlaylistShow">
+          <p> Genre: {playlist.genre} </p>
+          <p> Songs:
+          <ul>
+        {playlist.songs.map((song, index) => (
+          <li key={index}>{song.title} by: {song.artist}</li>
+        ))}
+        </ul>
+        </p>
+        <p> img_url: {playlist.title} </p>
+
+        </div>
       </div>
         )}
       }

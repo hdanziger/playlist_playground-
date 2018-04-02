@@ -26,3 +26,17 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.PlaylistShow {
+  font-size: large;
+  text-align: left;
+  margin-left: 30%;
+
+  background: whitesmoke;
+  text-align: left;
+  padding: 10px;
+  width: 35%;
+  height: 300px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}

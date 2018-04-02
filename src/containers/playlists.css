@@ -1,5 +1,11 @@
 .PlaylistCard {
+  margin: 4%;
+  float: center;
   background: whitesmoke;
+  text-align: left;
+  padding: 10px;
+  width: 40%;
+  height: 250px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }
