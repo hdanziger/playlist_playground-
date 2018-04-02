@@ -13,3 +13,8 @@
 .PlaylistsContainer {
   padding: 10px;
 }
+
+.playlistImage {
+  width: 20%;
+  image-orientation: right;
+}

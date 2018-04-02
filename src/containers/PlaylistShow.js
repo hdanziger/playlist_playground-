@@ -18,6 +18,7 @@ class PlaylistShow extends Component {
       <div>
         <h1 className="App-header"> Playlist: {playlist.title} </h1>
         <div className="PlaylistShow">
+          <img align="right" className="playlistImage" src={playlist.img_url} alt={playlist.title} />
           <p> Genre: {playlist.genre} </p>
           <p> Songs:
           <ul>
@@ -26,7 +27,7 @@ class PlaylistShow extends Component {
         ))}
         </ul>
         </p>
-        <p> img_url: {playlist.title} </p>
+
 
         </div>
       </div>
