@@ -8,7 +8,6 @@ import PlaylistForm from './PlaylistForm';
 class Playlists extends Component {
   componentDidMount(){
     this.props.fetchPlaylists();
-    //debugger
   }
   render(){
     return(

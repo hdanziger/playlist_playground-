@@ -1,3 +1,5 @@
+import { resetPlaylistForm } from './playlistForm';
+
 //** action creators **
 const setPlaylists = playlists => {
   return {
@@ -13,12 +15,12 @@ const addPlaylist = playlist => {
   };
 };
 
-const updatePlaylist = playlist => {
-  return{
-    type: "UPDATE_PLAYLIST_SUCCESS",
-    playlist
-  };
-};
+// const updatePlaylist = playlist => {
+//   return{
+//     type: "UPDATE_PLAYLIST_SUCCESS",
+//     playlist
+//   };
+// };
 //** async actions **
 export const fetchPlaylists = () => {
   return dispatch => {
@@ -38,9 +40,8 @@ export const createPlaylist = playlist  => {
     },
     body: JSON.stringify({playlist: playlist})
   })
-    .then(resp => resp.json())
-    .then(playlist => {
-      debugger
-    })
+    .then(response => response.json())
+    .then(playlist => dispatch(addPlaylist(playlist)))
+    .then(playlist => dispatch(resetPlaylistForm()))
+    }
   }
-}
