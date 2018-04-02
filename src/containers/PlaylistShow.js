@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import { getPlaylist } from '../actions/playlists';
 import '../App.css';
 import logo from '../logo.svg'
+import Navbar from "../components/Navbar";
 //import Playlists from "../containers/Playlists";
 
 class PlaylistShow extends Component {
@@ -15,8 +16,9 @@ class PlaylistShow extends Component {
     let playlist = this.props.playlist[0];
     const { history } = this.props
     return(
-      <div>
-        <h1 className="App-header"> Playlist: {playlist.title} </h1>
+      <div className="App-header">
+        <h1> Playlist: {playlist.title} </h1>
+        <Navbar />
         <div className="PlaylistShow">
           <img align="right" className="playlistImage" src={playlist.img_url} alt={playlist.title} />
           <p> Genre: {playlist.genre} </p>

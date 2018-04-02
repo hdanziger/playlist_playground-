@@ -5,6 +5,7 @@ import { fetchPlaylists } from '../actions/playlists';
 import PlaylistCard from '../components/PlaylistCard';
 import { bindActionCreators } from 'redux';
 import PlaylistForm from './PlaylistForm';
+import Navbar from "../components/Navbar";
 
 class Playlists extends Component {
   componentDidMount(){
@@ -12,10 +13,11 @@ class Playlists extends Component {
   }
   render(){
     return(
-      <div>
-      <h1 className="App-header"> Playlists </h1>
+      <div className="App-header">
+        <h1> Playlists </h1>
+        <Navbar />
         {this.props.playlists.map(playlist =>
-          <PlaylistCard key={playlist.id} playlist={playlist}/>)} 
+          <PlaylistCard key={playlist.id} playlist={playlist}/>)}
       </div>
     );
   }

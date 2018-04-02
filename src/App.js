@@ -6,6 +6,7 @@ import Playlists from "./containers/Playlists";
 import Home from "./components/Home";
 import PlaylistForm from "./containers/PlaylistForm";
 import PlaylistShow from "./containers/PlaylistShow";
+import Navbar from "./components/Navbar";
 
 
 class App extends Component {
@@ -13,13 +14,16 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Router>
-          <Switch>
-              <Route exact path="/" component={Home} />
-              <Route exact path="/playlists" component={Playlists} />
-              <Route exact path="/playlists/new" component={PlaylistForm} />
-              <Route path="/playlists/:playlistId" component={PlaylistShow}/>
-              </Switch>
+          <Router>
+            <div>
+              <Switch>
+                <Route exact path="/" component={Home} />
+                <Route exact path="/playlists" component={Playlists} />
+                <Route exact path="/playlists/new" component={PlaylistForm} />
+                <Route path="/playlists/:playlistId" component={PlaylistShow}/>
+                <Navbar />
+                </Switch>
+            </div>
         </Router>
       </div>
     );

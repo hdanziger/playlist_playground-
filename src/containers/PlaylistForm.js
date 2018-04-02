@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { updatePlaylistFormData } from '../actions/playlistForm'
 import { createPlaylist } from '../actions/playlists'
+import Navbar from "../components/Navbar";
 
 class PlaylistForm extends Component {
 
@@ -21,45 +22,46 @@ class PlaylistForm extends Component {
     const { title, genre, songs, img_url} = this.props.playlistFormData;
 
     return(
-      <div>
-      Add a playlist
+      <div className="App-header">
+      <h1> Add a playlist</h1>
+      <Navbar /><br /><br /><br />
         <form onSubmit={this.handleOnSubmit}>
           <div>
-            <label htmlFor="title"> Title:</label>
+            <label htmlFor="title"> Title: </label>
             <input
               type="text"
               onChange={this.handleOnChange}
               name="title"
               value={title}
             />
-          </div>
+          </div><br />
           <div>
-            <label htmlFor="genre"> Genre:</label>
+            <label htmlFor="genre"> Genre: </label>
             <input
               type="text"
               onChange={this.handleOnChange}
               name="genre"
               value={genre}
             />
-          </div>
+          </div><br />
           <div>
-            <label htmlFor="songs"> Songs:</label>
-            <input
-              type="text"
-              onChange={this.handleOnChange}
-              name="songs"
-              value={songs}
-            />
-          </div>
-          <div>
-            <label htmlFor="img_url"> Image Url:</label>
+            <label htmlFor="img_url"> Image Url: </label>
             <input
               type="text"
               onChange={this.handleOnChange}
               name="img_url"
               value={img_url}
             />
-          </div>
+          </div><br />
+          <div>
+            <label htmlFor="songs"> Add Songs: </label>
+            <input
+              type="text"
+              onChange={this.handleOnChange}
+              name="songs"
+              value={songs}
+            />
+          </div><br />
           <button type="submit">Add Playlist</button>
         </form>
       </div>
