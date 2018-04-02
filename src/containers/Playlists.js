@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 import './playlists.css'
 import { fetchPlaylists } from '../actions/playlists';
 import PlaylistCard from '../components/PlaylistCard';
+import { bindActionCreators } from 'redux';
 import PlaylistForm from './PlaylistForm';
 
 class Playlists extends Component {
@@ -11,13 +12,19 @@ class Playlists extends Component {
   }
   render(){
     return(
-      <div className="PlaylistsContainer">
-      <h3> Playlists </h3>
-        {this.props.playlists.map(playlist => <PlaylistCard key={playlist.id} playlist={playlist} />)}
-        <PlaylistForm />
+      <div>
+      <h1 className="App-header"> Playlists </h1>
+        {this.props.playlists.map(playlist =>
+          <PlaylistCard key={playlist.id} playlist={playlist}/>)} 
       </div>
     );
   }
+}
+
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators({
+    fetchPlaylists: fetchPlaylists
+  }, dispatch);
 }
 
 const mapStateToProps = (state) => {
@@ -25,4 +32,4 @@ const mapStateToProps = (state) => {
     playlists: state.playlists
   })
 }
-export default connect(mapStateToProps, { fetchPlaylists })(Playlists);
+export default connect(mapStateToProps, mapDispatchToProps)(Playlists);

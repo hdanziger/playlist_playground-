@@ -15,7 +15,7 @@ const addPlaylist = playlist => {
   };
 };
 
-// const updatePlaylist = playlist => {
+// const editPlaylist = playlist => {
 //   return{
 //     type: "UPDATE_PLAYLIST_SUCCESS",
 //     playlist
@@ -31,6 +31,17 @@ export const fetchPlaylists = () => {
     }
   }
 
+  export const getPlaylist = playlistId => {
+    return dispatch => {
+      return fetch(`http://localhost:3001/api/playlists/${playlistId}`)
+      .then(resp => resp.json())
+      .then(playlist => {
+        dispatch(setPlaylists([playlist]));
+      })
+      .catch(error => console.log(error));
+    };
+  };
+
 export const createPlaylist = playlist  => {
   return dispatch => {
     return fetch('http://localhost:3001/api/playlists', {
@@ -41,7 +52,25 @@ export const createPlaylist = playlist  => {
     body: JSON.stringify({playlist: playlist})
   })
     .then(response => response.json())
-    .then(playlist => dispatch(addPlaylist(playlist)))
-    .then(playlist => dispatch(resetPlaylistForm()))
+    .then(playlist =>
+      dispatch(addPlaylist(playlist)),
+      dispatch(resetPlaylistForm()))
+    }
+  }
+
+export const updatePlaylist = (playlistId, playlist)  => {
+  return dispatch => {
+    return fetch(`http://localhost:3001/api/playlists/${playlistId}`, {
+    method: "PUT",
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({playlist: playlist})
+  })
+    .then(response => response.json())
+    .then(playlist =>
+      dispatch(updatePlaylist(playlist)),
+      dispatch(resetPlaylistForm()))
     }
   }
