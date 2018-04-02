@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getPlaylist } from '../actions/playlists';
 import '../App.css';
+import logo from '../logo.svg'
 //import Playlists from "../containers/Playlists";
 
 class PlaylistShow extends Component {
@@ -14,9 +15,12 @@ class PlaylistShow extends Component {
     let playlist = this.props.playlist[0];
     const { history } = this.props;
     return(
-      <div className="App-header">
-      <h1> Playlist: {playlist.title} </h1>
-          </div>
+      <div>
+        <h1 className="App-header"> Playlist: {playlist.title} </h1>
+        <h4> Genre: {playlist.genre} </h4>
+        <h4> Songs: {playlist.songs} </h4>
+        <h4> img_url: {playlist.title} </h4>
+      </div>
         )}
       }
 
