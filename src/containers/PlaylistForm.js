@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { updatePlaylistFormData } from '../actions/playlistForm'
 import { createPlaylist } from '../actions/playlists'
+import SongForm from './SongForm';
 import Navbar from "../components/Navbar";
 
 class PlaylistForm extends Component {
@@ -53,15 +54,7 @@ class PlaylistForm extends Component {
               value={img_url}
             />
           </div><br />
-          <div>
-            <label htmlFor="songs"> Add Songs: </label>
-            <input
-              type="text"
-              onChange={this.handleOnChange}
-              name="songs"
-              value={songs}
-            />
-          </div><br />
+          <SongForm />
           <button type="submit">Add Playlist</button>
         </form>
       </div>

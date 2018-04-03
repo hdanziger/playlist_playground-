@@ -1,7 +1,7 @@
 .PlaylistCard {
-  margin: 4%;
+  margin: 8%;
   float: center;
-  background: whitesmoke;
+  background: #E0E0E0;
   text-align: left;
   padding: 10px;
   width: 40%;
@@ -12,6 +12,8 @@
 
 .PlaylistsContainer {
   padding: 10px;
+  width: 100%;
+  margin: 1.5%;
 }
 
 .playlistImage {

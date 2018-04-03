@@ -15,12 +15,12 @@ const addPlaylist = playlist => {
   };
 };
 
-// const editPlaylist = playlist => {
-//   return{
-//     type: "UPDATE_PLAYLIST_SUCCESS",
-//     playlist
-//   };
-// };
+const editPlaylist = playlist => {
+  return{
+    type: "UPDATE_PLAYLIST_SUCCESS",
+    playlist
+  };
+};
 //** async actions **
 export const fetchPlaylists = () => {
   return dispatch => {

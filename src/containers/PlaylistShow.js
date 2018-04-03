@@ -5,6 +5,7 @@ import { getPlaylist } from '../actions/playlists';
 import '../App.css';
 import logo from '../logo.svg'
 import Navbar from "../components/Navbar";
+import PlaylistEdit from './PlaylistEdit';
 //import Playlists from "../containers/Playlists";
 
 class PlaylistShow extends Component {
@@ -18,20 +19,17 @@ class PlaylistShow extends Component {
     return(
       <div className="App-header">
         <h1> Playlist: {playlist.title} </h1>
-        <Navbar />
+        <Navbar /><br /><br /><br />
         <div className="PlaylistShow">
           <img align="right" className="playlistImage" src={playlist.img_url} alt={playlist.title} />
           <p> Genre: {playlist.genre} </p>
           <p> Songs:
-          <ul>
         {playlist.songs.map((song, index) => (
           <li key={index}>{song.title} by: {song.artist}</li>
         ))}
-        </ul>
         </p>
-
-
         </div>
+        <PlaylistEdit />
       </div>
         )}
       }
