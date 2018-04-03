@@ -11,10 +11,13 @@ class Playlists extends Component {
   componentDidMount(){
     this.props.fetchPlaylists();
   }
+
+
   render(){
     return(
       <div className="App-header">
         <h1> Playlists </h1>
+      { /* <PlaylistForm getData={ this.getData }/> */}
         <Navbar />
         {this.props.playlists.map(playlist =>
           <PlaylistCard key={playlist.id} playlist={playlist}/>)}

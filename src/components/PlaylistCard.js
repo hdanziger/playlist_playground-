@@ -9,10 +9,10 @@ const PlaylistCard = ({ playlist }) => (
       <img align="right" className="playlistImage" src={playlist.img_url} alt={playlist.title} />
       </Link>
       <p><strong>Genre: </strong>{playlist.genre}</p>
-      <strong>Songs:</strong>
+      {/*<strong>Songs:</strong>
       {playlist.songs.map((song, index) => (
         <li key={index}>{song.title} by: {song.artist}</li>
-      ))}
+      ))}*/}
 
     </div>
   )
