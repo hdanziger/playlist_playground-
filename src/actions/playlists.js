@@ -1,21 +1,21 @@
 import { resetPlaylistForm } from './playlistForm';
 
 //** action creators **
-const setPlaylists = playlists => {
+export function setPlaylists(playlists){
   return {
     type: "GET_PLAYLISTS_SUCCESS",
     playlists
   };
 };
 
-const addPlaylist = playlist => {
+export function addPlaylist(playlist){
   return {
     type: "CREATE_PLAYLIST_SUCCESS",
     playlist
   };
 };
 
-const editPlaylist = playlist => {
+export function editPlaylist(playlist){
   return{
     type: "UPDATE_PLAYLIST_SUCCESS",
     playlist

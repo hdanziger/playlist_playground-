@@ -6,17 +6,22 @@ import '../App.css';
 import logo from '../logo.svg'
 import Navbar from "../components/Navbar";
 import PlaylistEdit from './PlaylistEdit';
+import { Route } from 'react-router-dom';
 //import Playlists from "../containers/Playlists";
 
-class PlaylistShow extends Component {
-  componentDidMount(){
-    this.props.getPlaylist(this.props.match.params.playlistId);
-  }
+const mapStateToProps = (state, ownProps) => {
+  return({
+    playlist: state.playlists.find(playlist =>
+    playlist.id === Number(ownProps.match.params.playlistId))
+  })
+}
 
+class PlaylistShow extends Component {
+  // componentDidMount(){
+  //   this.props.getPlaylist(this.props.match.params.playlistId);
+  // }
   render(){
-    let playlist = this.props.playlist[0];
-    const { history } = this.props
-    debugger
+    const { playlist, history } = this.props
     return(
       <div className="App-header">
         <h1> Playlist: {playlist.title} </h1>
@@ -30,10 +35,13 @@ class PlaylistShow extends Component {
         ))}*/}
         </p>
         </div>
-        <PlaylistEdit />
+        < PlaylistEdit />
+
       </div>
         )}
       }
+
+
 
 const mapDispatchToProps = dispatch => {
   return bindActionCreators({
@@ -41,9 +49,5 @@ const mapDispatchToProps = dispatch => {
   }, dispatch);
 }
 
-const mapStateToProps = (state) => {
-  return({
-    playlist: state.playlists
-  })
-}
+
 export default connect(mapStateToProps, mapDispatchToProps)(PlaylistShow);

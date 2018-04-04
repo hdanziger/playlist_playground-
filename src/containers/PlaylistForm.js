@@ -28,8 +28,9 @@ class PlaylistForm extends Component {
     event.preventDefault();
     this.props.createPlaylist(this.props.playlistFormData)
   }
+
   render (){
-    const { title, genre, songs, img_url} = this.props.playlistFormData;
+    const { title, genre, img_url} = this.props.playlistFormData;
 
     return(
       <div className="App-header">
@@ -42,7 +43,7 @@ class PlaylistForm extends Component {
               type="text"
               onChange={this.handleOnChange}
               name="title"
-              value={this.state.title}
+              value={title}
             />
           </div><br />
           <div>
@@ -51,7 +52,7 @@ class PlaylistForm extends Component {
               type="text"
               onChange={this.handleOnChange}
               name="genre"
-              value={this.state.genre}
+              value={genre}
             />
           </div><br />
           <div>
@@ -60,10 +61,11 @@ class PlaylistForm extends Component {
               type="text"
               onChange={this.handleOnChange}
               name="img_url"
-              value={this.state.img_url}
+              value={img_url}
             />
           </div><br />
-          <button type="submit">Add Playlist</button>
+          <button type="submit" onClick={() => this.props.history.push('/playlists')}
+          >Add Playlist</button>
         </form>
       </div>
     )
