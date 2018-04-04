@@ -6,7 +6,6 @@ import Playlists from "./containers/Playlists";
 import Home from "./components/Home";
 import PlaylistForm from "./containers/PlaylistForm";
 import PlaylistShow from "./containers/PlaylistShow";
-import PlaylistEdit from "./containers/PlaylistEdit";
 import Navbar from "./components/Navbar";
 
 
@@ -22,7 +21,6 @@ class App extends Component {
                 <Route exact path="/playlists" component={Playlists} />
                 <Route exact path="/playlists/new" component={PlaylistForm} />
                 <Route path="/playlists/:playlistId" component={PlaylistShow}/>
-                <Route path="/playlists/:playlistId/edit" component={PlaylistEdit}/>
                 <Navbar />
                 </Switch>
             </div>

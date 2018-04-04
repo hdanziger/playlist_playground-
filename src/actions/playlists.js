@@ -1,4 +1,4 @@
-import { resetPlaylistForm } from './playlistForm';
+
 
 //** action creators **
 export function setPlaylists(playlists){
@@ -53,8 +53,7 @@ export const createPlaylist = playlist  => {
   })
     .then(response => response.json())
     .then(playlist =>
-      dispatch(addPlaylist(playlist)),
-      dispatch(resetPlaylistForm()))
+      dispatch(addPlaylist(playlist)))
     }
   }
 

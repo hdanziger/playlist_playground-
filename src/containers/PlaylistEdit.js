@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { updatePlaylistFormData } from '../actions/playlistForm';
 import { updatePlaylist } from '../actions/playlists';
 import { getPlaylist } from '../actions/playlists';
 

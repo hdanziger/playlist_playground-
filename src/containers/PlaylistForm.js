@@ -44,6 +44,12 @@ class PlaylistForm extends Component {
     });
   };
 
+  handleSongRemoval = (index) => () => {
+    this.setState({
+      songs_attributes: this.state.songs_attributes.filter((title, i) => index !== i),
+    });
+  };
+
 
   render (){
     return(
@@ -82,9 +88,9 @@ class PlaylistForm extends Component {
             <label> Add Songs </label>
               <ul>
                 <SongsForm
-                  name="title"
-                  state={this.state}
+                  state ={this.state}
                   handleSongsForm={this.handleSongsForm}
+                  handleSongRemoval={this.handleSongRemoval}
                 />
               <input
                 type="button"
