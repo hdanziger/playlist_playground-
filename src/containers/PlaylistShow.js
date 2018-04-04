@@ -27,7 +27,7 @@ class PlaylistShow extends Component {
           <p> Genre: {playlist.genre} </p>
           <p> Songs:
         {playlist.songs.map((song, index) => (
-          <li key={index}>{song.title} by: {song.artist}</li>
+          <li key={index}>{song.title}</li>
         ))}
         </p>
         </div>
