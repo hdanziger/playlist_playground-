@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 class SongsForm extends Component {
   render() {
     const { state, handleSongsForm } = this.props;
-
     return (
       state.songs_attributes.map((song, index) => (
         <li key={index}>

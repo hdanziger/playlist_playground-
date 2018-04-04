@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { updatePlaylistFormData } from '../actions/playlistForm'
 import { createPlaylist } from '../actions/playlists'
 import Navbar from "../components/Navbar";
 import SongsForm from './SongsForm';
@@ -26,16 +25,18 @@ class PlaylistForm extends Component {
   handleOnSubmit = event => {
     event.preventDefault();
     this.props.createPlaylist(this.state, this.props.history)
+    this.props.history.replace('/playlists')
   }
 
   handleSongsForm = (index) => (event) => {
+    const { name, value } = event.target;
     let newSongs;
     newSongs = this.state.songs_attributes.map((song, i) => {
-      {return song};
-      return {...song, title: event.target.value};
-    })
-    this.setState({ songs_attributes: newSongs });
-  };
+      if ( index !== i) {return song};
+      return {...song, title: event.target.value}
+    });
+    this.setState({ songs_attributes: newSongs});
+  }
 
   handleAddSong = () => {
     this.setState({
@@ -78,18 +79,19 @@ class PlaylistForm extends Component {
             />
           </div><br />
           <div>
-            <label> Songs </label>
+            <label> Add Songs </label>
               <ul>
                 <SongsForm
+                  name="title"
                   state={this.state}
                   handleSongsForm={this.handleSongsForm}
                 />
-              </ul>
               <input
                 type="button"
                 value="Add Song"
                 onClick={this.handleAddSong}
               />
+              </ul>
               </div>
 
           <button
@@ -100,11 +102,10 @@ class PlaylistForm extends Component {
   }
 }
 
-//onClick={() => this.props.history.replace('/playlists')}>
 
 const mapStateToProps = state => {
   return {
     playlistFormData: state.playlistFormData
   }
 }
-export default connect (mapStateToProps, { updatePlaylistFormData, createPlaylist })(PlaylistForm);
+export default connect (mapStateToProps, { createPlaylist })(PlaylistForm);
