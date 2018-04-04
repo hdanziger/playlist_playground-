@@ -26,15 +26,9 @@ class Playlists extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return bindActionCreators({
-    fetchPlaylists: fetchPlaylists
-  }, dispatch);
-}
-
 const mapStateToProps = (state) => {
   return({
     playlists: state.playlists
   })
 }
-export default connect(mapStateToProps, mapDispatchToProps)(Playlists);
+export default connect(mapStateToProps, {fetchPlaylists})(Playlists);

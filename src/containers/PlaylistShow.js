@@ -5,7 +5,6 @@ import { getPlaylist } from '../actions/playlists';
 import '../App.css';
 import logo from '../logo.svg'
 import Navbar from "../components/Navbar";
-import PlaylistEdit from './PlaylistEdit';
 import { Route } from 'react-router-dom';
 //import Playlists from "../containers/Playlists";
 
@@ -17,11 +16,9 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 class PlaylistShow extends Component {
-  // componentDidMount(){
-  //   this.props.getPlaylist(this.props.match.params.playlistId);
-  // }
+
   render(){
-    const { playlist, history } = this.props
+    const { playlist, history, match } = this.props
     return(
       <div className="App-header">
         <h1> Playlist: {playlist.title} </h1>
@@ -35,12 +32,10 @@ class PlaylistShow extends Component {
         ))}*/}
         </p>
         </div>
-        < PlaylistEdit />
 
       </div>
         )}
       }
-
 
 
 const mapDispatchToProps = dispatch => {
