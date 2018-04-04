@@ -5,6 +5,16 @@ import { createPlaylist } from '../actions/playlists'
 import Navbar from "../components/Navbar";
 
 class PlaylistForm extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      id: null,
+      title: "",
+      genre: "",
+      img_url: ""
+    }
+  }
 
   handleOnChange = event => {
     const { name, value } = event.target;
@@ -32,7 +42,7 @@ class PlaylistForm extends Component {
               type="text"
               onChange={this.handleOnChange}
               name="title"
-              value={title}
+              value={this.state.title}
             />
           </div><br />
           <div>
@@ -41,7 +51,7 @@ class PlaylistForm extends Component {
               type="text"
               onChange={this.handleOnChange}
               name="genre"
-              value={genre}
+              value={this.state.genre}
             />
           </div><br />
           <div>
@@ -50,7 +60,7 @@ class PlaylistForm extends Component {
               type="text"
               onChange={this.handleOnChange}
               name="img_url"
-              value={img_url}
+              value={this.state.img_url}
             />
           </div><br />
           <button type="submit">Add Playlist</button>

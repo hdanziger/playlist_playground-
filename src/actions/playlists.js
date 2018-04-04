@@ -69,8 +69,6 @@ export const updatePlaylist = (playlistId, playlist)  => {
     body: JSON.stringify({playlist: playlist})
   })
     .then(response => response.json())
-    .then(playlist =>
-      dispatch(updatePlaylist(playlist)),
-      dispatch(resetPlaylistForm()))
-    }
+    .then(playlist => dispatch(updatePlaylist(playlist)))
   }
+}

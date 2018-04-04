@@ -16,6 +16,7 @@ class PlaylistShow extends Component {
   render(){
     let playlist = this.props.playlist[0];
     const { history } = this.props
+    debugger
     return(
       <div className="App-header">
         <h1> Playlist: {playlist.title} </h1>
@@ -24,9 +25,9 @@ class PlaylistShow extends Component {
           <img align="right" className="playlistImage" src={playlist.img_url} alt={playlist.title} />
           <p> Genre: {playlist.genre} </p>
           <p> Songs:
-        {playlist.songs.map((song, index) => (
+      {/*}  {playlist.songs.map((song, index) => (
           <li key={index}>{song.title} by: {song.artist}</li>
-        ))}
+        ))}*/}
         </p>
         </div>
         <PlaylistEdit />
