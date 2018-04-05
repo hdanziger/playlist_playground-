@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import '../App.css';
 import Navbar from "../components/Navbar";
 import { Route } from 'react-router-dom';
+import { deletePlaylist } from '../actions/playlists';
 
 const mapStateToProps = (state, ownProps) => {
   return({
@@ -15,7 +16,7 @@ const mapStateToProps = (state, ownProps) => {
 class PlaylistShow extends Component {
 
   render(){
-    const { playlist, history, match } = this.props
+    const { playlist, history, match, deletePlaylist } = this.props
     return(
       <div className="App-header">
         <h1> Playlist: {playlist.title} </h1>
@@ -28,6 +29,11 @@ class PlaylistShow extends Component {
           <li key={index}>{song.title}</li>
         ))}
         </p>
+        <button
+             onClick={() => deletePlaylist(playlist.id, history)}
+           >
+             Bad Playlist DELETE me!
+           </button>
         </div>
       </div>
         )}
@@ -36,4 +42,4 @@ class PlaylistShow extends Component {
 
 
 
-export default connect(mapStateToProps)(PlaylistShow);
+export default connect(mapStateToProps, {deletePlaylist})(PlaylistShow);

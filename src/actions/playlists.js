@@ -13,6 +13,12 @@ export function addPlaylist(playlist){
   };
 };
 
+export const removePlaylist = playlistId => {
+  return {
+    type: "REMOVE_PLAYLIST",
+    playlistId
+  }
+}
 //** async actions **
 export const fetchPlaylists = () => {
   return dispatch => {
@@ -48,3 +54,17 @@ export const createPlaylist = playlist  => {
       dispatch(addPlaylist(playlist)))
     }
   }
+
+  export const deletePlaylist = (playlistId, routerHistory) => {
+  return dispatch => {
+    return fetch(`http://localhost:3001/api/playlists/${playlistId}`, {
+      method: 'DELETE'
+    })
+    .then(res => {
+      if (res.status === 204) {
+        routerHistory.replace('/playlists')
+        dispatch(removePlaylist(playlistId));
+      }
+    }).catch(err =>  console.log(err));
+  };
+};
