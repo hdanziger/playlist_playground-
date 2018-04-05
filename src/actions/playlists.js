@@ -1,5 +1,3 @@
-
-
 //** action creators **
 export function setPlaylists(playlists){
   return {
@@ -15,12 +13,6 @@ export function addPlaylist(playlist){
   };
 };
 
-export function editPlaylist(playlist){
-  return{
-    type: "UPDATE_PLAYLIST_SUCCESS",
-    playlist
-  };
-};
 //** async actions **
 export const fetchPlaylists = () => {
   return dispatch => {
@@ -51,23 +43,8 @@ export const createPlaylist = playlist  => {
     },
     body: JSON.stringify({playlist: playlist})
   })
-    .then(response => response.json())
+    .then(resp => resp.json())
     .then(playlist =>
       dispatch(addPlaylist(playlist)))
     }
   }
-
-export const updatePlaylist = (playlistId, playlist)  => {
-  return dispatch => {
-    return fetch(`http://localhost:3001/api/playlists/${playlistId}`, {
-    method: "PUT",
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({playlist: playlist})
-  })
-    .then(response => response.json())
-    .then(playlist => dispatch(updatePlaylist(playlist)))
-  }
-}

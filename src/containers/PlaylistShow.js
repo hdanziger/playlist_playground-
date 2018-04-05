@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { getPlaylist } from '../actions/playlists';
 import '../App.css';
 import Navbar from "../components/Navbar";
 import { Route } from 'react-router-dom';
-//import Playlists from "../containers/Playlists";
 
 const mapStateToProps = (state, ownProps) => {
   return({
@@ -31,17 +29,11 @@ class PlaylistShow extends Component {
         ))}
         </p>
         </div>
-
       </div>
         )}
       }
 
 
-const mapDispatchToProps = dispatch => {
-  return bindActionCreators({
-    getPlaylist: getPlaylist
-  }, dispatch);
-}
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(PlaylistShow);
+export default connect(mapStateToProps)(PlaylistShow);

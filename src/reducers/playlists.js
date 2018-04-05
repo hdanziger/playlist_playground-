@@ -6,12 +6,6 @@ export default (state = [], action) => {
     case "CREATE_PLAYLIST_SUCCESS":
     return [...state, action.playlist];
 
-    case "UPDATE_PLAYLIST_SUCCESS":
-    return [
-      ...state.filter(playlist => playlist.id !== action.playlist.id),
-      Object.assign({}, action.playlist)
-    ];
-
     default:
     return state;
   }

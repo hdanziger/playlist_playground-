@@ -107,11 +107,4 @@ class PlaylistForm extends Component {
     )
   }
 }
-
-
-const mapStateToProps = state => {
-  return {
-    playlistFormData: state.playlistFormData
-  }
-}
-export default connect (mapStateToProps, { createPlaylist })(PlaylistForm);
+export default connect (null, { createPlaylist })(PlaylistForm);
