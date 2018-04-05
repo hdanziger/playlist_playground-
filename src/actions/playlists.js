@@ -65,6 +65,7 @@ export const createPlaylist = playlist  => {
         routerHistory.replace('/playlists')
         dispatch(removePlaylist(playlistId));
       }
-    }).catch(err =>  console.log(err));
+    })
+    .catch(error =>  console.log(error));
   };
 };

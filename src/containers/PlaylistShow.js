@@ -31,15 +31,12 @@ class PlaylistShow extends Component {
         </p>
         <button
              onClick={() => deletePlaylist(playlist.id, history)}
-           >
-             Bad Playlist DELETE me!
+             > Delete Playlist
            </button>
         </div>
       </div>
-        )}
-      }
-
-
-
+    )
+  }
+}
 
 export default connect(mapStateToProps, {deletePlaylist})(PlaylistShow);
