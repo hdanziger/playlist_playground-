@@ -64,7 +64,6 @@ export const createPlaylist = (playlist, history)  => {
         history.replace('/playlists')
         dispatch(addPlaylist(playlist))
       })
-      //.catch(err => dispatch({type: "ERROR_PRESENT", message: err}))
     }
   }
 
