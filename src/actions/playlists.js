@@ -19,6 +19,13 @@ export const removePlaylist = playlistId => {
     playlistId
   }
 }
+
+export const addLikes = playlist => {
+  return {
+    type: "LIKE_PLAYLIST",
+    playlist
+  };
+};
 //** async actions **
 export const fetchPlaylists = () => {
   return dispatch => {
@@ -60,6 +67,26 @@ export const createPlaylist = (playlist, history)  => {
       //.catch(err => dispatch({type: "ERROR_PRESENT", message: err}))
     }
   }
+
+  export const likePlaylist = playlist => {
+    const updatedPlaylist = Object.assign(...playlist, {
+    likes: playlist.likes + 1
+  });
+    return dispatch => {
+      return fetch(`http://localhost:3001/api/playlists/${playlist.id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ playlist: updatedPlaylist })
+      })
+        .then(response => response.json())
+        .then(playlist => {
+          dispatch(addLikes(playlist));
+        })
+        .catch(error => console.log(error));
+    };
+  };
 
   export const deletePlaylist = (playlistId, routerHistory) => {
   return dispatch => {

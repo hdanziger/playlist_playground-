@@ -1,23 +1,17 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import '../containers/playlists.css'
+import { connect } from "react-redux";
+import { likePlaylist } from "../actions/playlists";
 
 class PlaylistCard extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      likes: 0,
-    }
-
+  constructor(props) {
+    super(props)
   }
 
-  handleLikes = () =>  {
-    let newCount = this.state.likes + 1
-    this.setState({
-      likes: newCount
-    })
-  }
+  // handleLikes = () =>  {
+  //   (this.state)
+  //   }
 
   callApi = () => {
     console.log('a')
@@ -57,10 +51,11 @@ class PlaylistCard extends Component {
       {playlist.songs.map((song, index) => (
         <li key={index}>{song.title}</li>
       ))}
-      <button onClick={this.handleLikes}>
+
+      <button onClick={() => {this.props.likePlaylist(playlist)}}>
       Like me!
       </button>
-      <p> likes={this.state.likes} </p>
+      <p> likes: {playlist.likes} </p>
       <button onClick={this.callApi}>
       Call Api
       </button>
@@ -69,6 +64,12 @@ class PlaylistCard extends Component {
   )
 }
 }
+const mapStateToProps = state => {
+  return {
+    playlists: state.playlists
+  };
+};
 
 
-export default PlaylistCard;
+
+export default connect (mapStateToProps, { likePlaylist })(PlaylistCard);
