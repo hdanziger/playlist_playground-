@@ -23,7 +23,9 @@ export const removePlaylist = playlistId => {
 export const fetchPlaylists = () => {
   return dispatch => {
     return fetch('http://localhost:3001/api/playlists')
-    .then(resp => resp.json())
+    .then(function(resp) {
+      return resp.json()
+    })
     .then(playlists => dispatch(setPlaylists(playlists)))
     .catch(error => console.log(error))
     }
@@ -40,7 +42,7 @@ export const fetchPlaylists = () => {
     };
   };
 
-export const createPlaylist = playlist  => {
+export const createPlaylist = (playlist, history)  => {
   return dispatch => {
     return fetch('http://localhost:3001/api/playlists', {
     method: "POST",
@@ -51,7 +53,11 @@ export const createPlaylist = playlist  => {
   })
     .then(resp => resp.json())
     .then(playlist =>
-      dispatch(addPlaylist(playlist)))
+      {
+        history.replace('/playlists')
+        dispatch(addPlaylist(playlist))
+      })
+      //.catch(err => dispatch({type: "ERROR_PRESENT", message: err}))
     }
   }
 

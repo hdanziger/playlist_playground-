@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import '../App.css';
 import Navbar from "../components/Navbar";
 import { Route } from 'react-router-dom';

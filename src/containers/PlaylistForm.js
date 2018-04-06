@@ -25,7 +25,7 @@ class PlaylistForm extends Component {
   handleOnSubmit = event => {
     event.preventDefault();
     this.props.createPlaylist(this.state, this.props.history)
-    this.props.history.replace('/playlists')
+    //this.props.history.replace('/playlists')
   }
 
   handleSongsForm = (index) => (event) => {
@@ -88,9 +88,9 @@ class PlaylistForm extends Component {
             <label> Add Songs </label>
               <ul>
                 <SongsForm
-                  state ={this.state}
-                  handleSongsForm={this.handleSongsForm}
-                  handleSongRemoval={this.handleSongRemoval}
+                  state={this.state}
+                  handleSongsForm={ this.handleSongsForm }
+                  handleSongRemoval={ this.handleSongRemoval }
                 />
               <input
                 type="button"
@@ -105,6 +105,12 @@ class PlaylistForm extends Component {
         </form>
       </div>
     )
+  }
+}
+
+const mapStateToProps = state => {
+  return {
+    errMsg: state.error
   }
 }
 export default connect (null, { createPlaylist })(PlaylistForm);
