@@ -5,13 +5,6 @@ import { connect } from "react-redux";
 import { likePlaylist } from "../actions/playlists";
 
 class PlaylistCard extends Component {
-  constructor(props) {
-    super(props)
-  }
-
-  // handleLikes = () =>  {
-  //   (this.state)
-  //   }
 
   callApi = () => {
     console.log('a')
@@ -36,7 +29,7 @@ class PlaylistCard extends Component {
 
       // a d
     }
-
+  
 
   render() {
     const  { playlist, history } = this.props
